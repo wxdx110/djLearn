@@ -22,7 +22,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('booktest/',include('booktest.urls')),
     # re_path(r'^(\d+)$', views.show)
-    path('<int:id>/', views.show) #int类型的id
+    path('<int:id>/', views.show), #int类型的id
+    path('getTest/',views.getTest),
+    path('getTest1/',views.getTest1),
 ]
 '''
 path参数类型：
