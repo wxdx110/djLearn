@@ -25,6 +25,8 @@ urlpatterns = [
     path('<int:id>/', views.show), #int类型的id
     path('getTest/',views.getTest),
     path('getTest1/',views.getTest1),
+    path('postTest1/',views.postTest1),
+    path('postTest2/',views.postTest2),
 ]
 '''
 path参数类型：
