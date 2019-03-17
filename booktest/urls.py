@@ -3,6 +3,6 @@ from django.urls import *
 from booktest import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    re_path(r'^(\d+)$', views.show)
+    # re_path(r'^(\d+)$', views.show)
+    path('<int:id>/', views.show, name='show'), #int类型的id
 ]
