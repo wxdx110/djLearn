@@ -20,12 +20,14 @@ from booktest import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('booktest/',include(('booktest.urls', 'booktest'), namespace='booktest')), #django2中include需一个两元组
-    path('getTest/',views.getTest),
-    path('getTest1/',views.getTest1),
-    path('postTest1/',views.postTest1),
-    path('postTest2/',views.postTest2),
-    path('base/',views.base),
+    path('booktest/', include(('booktest.urls', 'booktest'), namespace='booktest')), #django2中include需一个两元组
+    path('getTest/', views.getTest),
+    path('getTest1/', views.getTest1),
+    path('postTest1/', views.postTest1),
+    path('postTest2/', views.postTest2),
+    path('base/', views.base),
+    path('picTest/', views.picTest),
+    path('picHandle/', views.picHandle)
 ]
 '''
 path参数类型：

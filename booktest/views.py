@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import *
 from django.http import *
+from django.conf import settings
+import os
 # from django.template import RequestContext, loader
 def base(request):
     return render(request, 'booktest/base.html')
@@ -34,3 +36,16 @@ def postTest2(request):
     uhobby = request.POST.getlist('uhobby')
     context = {'uname':uname, 'upwd':upwd, 'ugender':ugender, 'uhobby':uhobby}
     return render(request, 'booktest/postTest2.html', context)
+def picTest(request):
+    return render(request, 'booktest/picTest.html')
+def picHandle(request):
+    if request.method == "POST":
+        f1 = request.FILES['pic1']
+        # fname = r'%s/%s' % (settings.MEDIA_ROOT, f1.name)
+        fname = os.path.join(settings.MEDIA_ROOT, f1.name)
+        with open(fname, 'wb+') as pic:
+            for c in f1.chunks():
+                pic.write(c)
+        return HttpResponse('<img src="/static/booktest/media/%s">'%f1.name)
+    else:
+        return HttpResponse("error")
